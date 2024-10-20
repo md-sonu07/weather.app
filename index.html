@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEATHER APP</title>
+    <!-- FOR WEATHER AND TELWIND COMPONENTS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="output.css" />
+    <link rel="icon" href="assets/message/title-logo.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Custom scrollbar styles */
+    .custom-scrollbar::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.7);
+    }
+
+
+</style>
+
+</head>
+
+<body class=" flex items-center justify-center min-h-screen bg-cover  "
+    style="background-image:url(assets/bg.jpg) ; width: 100% ; height: 100dvh ; background-size: cover; background-position: center;">
+    <div class="bg-[#81adc3] bg-opacity-50 rounded-3xl p-6 w-80 ">
+        <!-- search section -->
+        <div class="search flex items-center justify-between mb-4 ">
+
+            <input id="city-input" list="city-suggestions" autocomplete="on"
+                class="input  bg-white/10 bg-opacity-50 text-white rounded-full pl-4 pr-2  py-2 w-full focus:outline-none placeholder:text-white border border-gray-300"
+                placeholder="Search City Name" type="text" />
+            <span class="pl-[10px] pr-2" onclick="document.getElementById('city-input').value = ''">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-5  " fill="white" x="0px" y="0px" width="50"
+                    height="50" viewBox="0 0 48 48">
+                    <path
+                        d="M 24 4 C 20.491685 4 17.570396 6.6214322 17.080078 10 L 10.238281 10 A 1.50015 1.50015 0 0 0 9.9804688 9.9785156 A 1.50015 1.50015 0 0 0 9.7578125 10 L 6.5 10 A 1.50015 1.50015 0 1 0 6.5 13 L 8.6386719 13 L 11.15625 39.029297 C 11.427329 41.835926 13.811782 44 16.630859 44 L 31.367188 44 C 34.186411 44 36.570826 41.836168 36.841797 39.029297 L 39.361328 13 L 41.5 13 A 1.50015 1.50015 0 1 0 41.5 10 L 38.244141 10 A 1.50015 1.50015 0 0 0 37.763672 10 L 30.919922 10 C 30.429604 6.6214322 27.508315 4 24 4 z M 24 7 C 25.879156 7 27.420767 8.2681608 27.861328 10 L 20.138672 10 C 20.579233 8.2681608 22.120844 7 24 7 z M 11.650391 13 L 36.347656 13 L 33.855469 38.740234 C 33.730439 40.035363 32.667963 41 31.367188 41 L 16.630859 41 C 15.331937 41 14.267499 40.033606 14.142578 38.740234 L 11.650391 13 z M 20.476562 17.978516 A 1.50015 1.50015 0 0 0 19 19.5 L 19 34.5 A 1.50015 1.50015 0 1 0 22 34.5 L 22 19.5 A 1.50015 1.50015 0 0 0 20.476562 17.978516 z M 27.476562 17.978516 A 1.50015 1.50015 0 0 0 26 19.5 L 26 34.5 A 1.50015 1.50015 0 1 0 29 34.5 L 29 19.5 A 1.50015 1.50015 0 0 0 27.476562 17.978516 z">
+                    </path>
+                </svg>
+            </span>
+            <datalist id="city-suggestions" class="bg-gray-300 ">
+                <!-- major cities names -->
+                <option value="Araria">
+                <option value="Purnia">
+                <option value="Arwal">
+                <option value="Aurangabad">
+                <option value="Banka">
+                <option value="Begusarai">
+                <option value="Bhagalpur">
+                    <!-- cities names -->
+                <option value="Mumbai">
+                <option value="Delhi">
+                <option value="Bangalore">
+                <option value="Hyderabad">
+                <option value="Ahmedabad">
+                <option value="Chennai">
+                <option value="Kolkata">
+                <option value="Surat">
+                <option value="Pune">
+                <option value="Goa">
+                <option value="Jaipur">
+                <option value="Lucknow">
+                <option value="Kanpur">
+                <option value="Nagpur">
+                <option value="Ghaziabad">
+                <option value="Indore">
+                <option value="Coimbatore">
+                <option value="Kochi">
+                <option value="Patna">
+                <option value="Bhopal">
+                <option value="Visakhapatnam">
+                <option value="Ludhiana">
+                <option value="Aurangabad">
+                <option value="Madurai">
+                <option value="Nashik">
+                <option value="Faridabad">
+                <option value="Meerut">
+                <option value="Rajkot">
+                <option value="Varanasi">
+                <option value="Srinagar">
+                <option value="Amritsar">
+                <option value="Allahabad">
+                <option value="Ranchi">
+                <option value="Howrah">
+
+                <option value="Gaya">
+                <option value="Bhagalpur">
+                <option value="Muzaffarpur">
+                <option value="Darbhanga">
+                <option value="Arrah">
+                <option value="Begusarai">
+                <option value="Katihar">
+                <option value="Munger">
+                <option value="Arah">
+                <option value="Aurangabad">
+                <option value="Bagaha">
+                <option value="Bakhtiyarpur">
+                <option value="Banka">
+                <option value="Barh">
+                <option value="Bettiah">
+                <option value="Buxar">
+                <option value="Chapra">
+                <option value="Danapur">
+                <option value="Dehri-on-Sone">
+                <option value="Dumraon">
+                <option value="Forbesganj">
+                <option value="Hajipur">
+                <option value="Jamalpur">
+                <option value="Jehanabad">
+                <option value="Kaimur">
+                <option value="Khagaria">
+                <option value="Kishanganj">
+                <option value="Lakhisarai">
+                <option value="Madhepura">
+                <option value="Madhubani">
+                <option value="Maharajganj">
+                <option value="Mahua">
+                <option value="Malmal">
+                <option value="Nawada">
+                <option value="Raghopur">
+                <option value="Saharsa">
+                <option value="Samastipur">
+                <option value="Sasaram">
+                <option value="Sheikhpura">
+                <option value="Sheohar">
+                <option value="Sitamarhi">
+                <option value="Siwan">
+                <option value="Supaul">
+                <option value="Vaishali">
+                    <!-- countries names -->
+                <option value="Singapore">
+                <option value="London">
+                <option value="New York">
+                <option value="Tokyo">
+                <option value="Sydney">
+                <option value="Paris">
+                <option value="Dubai">
+                <option value="Toronto">
+                <option value="Berlin">
+                <option value="Moscow">
+                <option value="Seoul">
+                <option value="Beijing">
+                <option value="Rome">
+                <option value="Madrid">
+                <option value="Toronto">
+
+            </datalist>
+
+            <button>
+                <i class="search fas fa-search text-white text-base ml-2 cursor-pointer">
+                </i>
+            </button>
+        </div>
+
+        <!-- main page -->
+        <div class="hidden main-page">
+            <div class="flex items-center justify-between mb-4 ">
+                <div class="flex items-center text-white">
+                    <i class="fas fa-map-marker-alt text-xl mr-2">
+                    </i>
+                    <span class="city font-bold text-base">
+                        
+                    </span>
+                </div>
+                <div class="date text-white font-semibold">
+                    Thu, 08 Aug
+                </div>
+            </div>
+            <div class="flex items-center justify-center mb-4 gap-x-10 ">
+                <img alt="Weather-icon showing partly cloudy" class="Weather-icon mb-2" height="100"
+                    src="assets/weather/clouds.svg" width="100" />
+                <div class="flex flex-col items-center ml-4">
+                    <div class="temp text-4xl text-white ">
+                        30°C
+                    </div>
+                    <div class="weathers-text text-white text-2xl">
+                        Clouds
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between text-white mb-4 ">
+                <div class="flex items-center ">
+                    <i class="fas fa-tint mr-4 text-2xl items-center">
+                    </i>
+                    <div class="items-start">
+                        <span class="font-[550]">Humidity</span><br>
+                        <span class="humidity font-bold">74%</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-wind mr-2 text-2xl items-center">
+                    </i>
+                    <div class=" items-start">
+                        <span class=" font-[550]">
+                            Wind Speed
+                        </span><br>
+                        <span class="wind-speed font-bold">
+                            4.12 km/h
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- slider -->
+            <div class="slider flex justify-between  text-white overflow-x-auto mb-4 gap-4 custom-scrollbar py-2 pl-2 ">
+                <div class="flex flex-col items-center bg-blue-200 bg-opacity-50 rounded-lg p-2 gap-2 text-nowrap">
+                    <div class="next-date">
+                        Aug 09
+                    </div>
+                    <img alt="Weather icon showing rain" class="my-2 mx-10 next-weather-icon2" height="50" src=""
+                        width="50" />
+                    <div class="font-bold next-temp2">
+                        <!-- 28°C -->
+                    </div>
+                </div>
+                <div class="flex flex-col items-center bg-blue-200 bg-opacity-50 rounded-lg p-2 gap-2 text-nowrap">
+                    <div class="next-date2">
+                        Aug 10
+                    </div>
+                    <img alt="Weather icon showing rain" class="my-2 mx-8 next-weather-icon3" height="50" src=""
+                        width="50" />
+                    <div class="font-bold next-temp3">
+                        <!-- 27°C -->
+                    </div>
+                </div>
+                <div class="flex flex-col items-center bg-blue-200 bg-opacity-50 rounded-lg p-2 gap-2 text-nowrap">
+                    <div class="next-date3">
+                        Aug 11
+                    </div>
+                    <img alt="Weather icon showing partly cloudy" class="my-2 mx-8 next-weather-icon4" height="50"
+                        src="" width="50" />
+                    <div class="font-bold next-temp4">
+                        <!-- 28°C -->
+                    </div>
+                </div>
+                <div class="flex flex-col items-center bg-blue-200 bg-opacity-50 rounded-lg p-2 gap-2 text-nowrap">
+                    <div class="next-date4">
+                        Aug 12
+                    </div>
+                    <img alt="Weather icon showing sunny" class="my-2 mx-8 next-weather-icon5" height="50" src=""
+                        width="50" />
+                    <div class="font-bold next-temp5">
+                        30°C
+                    </div>
+                </div>
+                <!-- <div class="flex flex-col items-center bg-blue-200 bg-opacity-50 rounded-lg p-2 gap-2 text-nowrap">
+                    <div class="next-date5">
+                        Aug 13
+                    </div>
+                    <img alt="Weather icon showing cloudy" class="my-2 mx-8 next-weather-icon6" height="50" src=""
+                        width="50" />
+                    <div class="font-bold next-temp6">
+                        25°C
+                    </div>
+                </div>
+                <div class="flex flex-col items-center bg-blue-200 bg-opacity-50 rounded-lg p-2 gap-2 text-nowrap">
+                    <div class="next-date6">
+                        Aug 14
+                    </div>
+                    <img alt="Weather icon showing thunderstorm" class="my-2 mx-8 next-weather-icon7" height="50"
+                        src="" width="50" />
+                    <div class="font-bold next-temp7">
+                        22°C
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- Not-found-page-404  -->
+        <div class=" hidden error-page bg-opacity-50 rounded-3xl p-6  mt-8 text-center">
+            <div class="text-5xl text-white mb-4">
+                <img src="assets/message/not-found.png" alt="">
+            </div>
+            <div class="text-xl text-white mt-10">
+                Location Not Found
+            </div>
+            <div class="text-white text-sm mt-5">
+                The location you are looking is not exist maybe your text are incorrect. Please try again
+            </div>
+            <div class="hidden">
+                Search City
+                Find out the weather conditions of the city
+            </div>
+        </div>
+        <!-- default-page -->
+        <div class="default-page bg-opacity-50 rounded-3xl p-6  mt-8 text-center">
+            <div class="text-5xl text-white mb-4">
+                <img src="assets/message/search-city.png" alt="">
+            </div>
+            <div class="text-xl text-white mb-4">
+                Search City
+            </div>
+            <div class="text-white ">
+                Find out the weather conditions of the city
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+
+</script>
+
+<!-- main -->
+<script src="weather.js"></script>
+</html>
