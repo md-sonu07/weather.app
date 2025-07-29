@@ -43,7 +43,7 @@ Ensure you have the following installed on your machine:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/danish-farhan07/weather.app.git
+   git clone https://github.com/md-sonu07/weather.app.git
 
 
 
